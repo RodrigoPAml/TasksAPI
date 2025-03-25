@@ -37,7 +37,7 @@ It should also handle how the response data should be presented.
 /// </summary>
 [Authorize]
 [HttpPost]
-[SwaggerResponse(StatusCodes.Status200OK, Type = typeof(BaseResponse))]
+[SwaggerResponse(StatusCodes.Status201Created, Type = typeof(BaseResponse))]
 [SwaggerResponse(StatusCodes.Status400BadRequest, Type = typeof(BaseResponse))]
 [SwaggerResponse(StatusCodes.Status500InternalServerError, Type = typeof(BaseResponse))]
 public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryCommand command)
@@ -51,7 +51,7 @@ public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryCommand
                   Success = resp.Success,
                   Response = null,
                   ErrorMessage = resp.Message,
-                  Code = resp.Success ? 200 : 400
+                  Code = resp.Success ? 201 : 400
               };
           }
     );
