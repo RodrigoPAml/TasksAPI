@@ -6,6 +6,8 @@ The project contains some base entities to simulate tasks, categories and users.
 
 You may need configure *appsettings.json* to get it to work.
 
+This is a sample, you may change it and adapt to your needs.
+
 ## Features
 
 * Entity framework ORM (tested with SQL Server)
