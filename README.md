@@ -173,6 +173,8 @@ The project contains two test projects: unit tests and integration tests.
 
 In our project, unit tests were performed in the domain layer, at the entity and domain service levels, using Moq to ensure there were no external dependencies (from repositories).
 
+You may need configure appsettings.Tests.json to get it to work.
+
 ### Entities
 ![image](https://github.com/user-attachments/assets/0750163d-ceea-4ffa-8f0a-e45068f44737)
 ### Domain services
