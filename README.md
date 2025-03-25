@@ -1,6 +1,6 @@
 # TasksAPI
 
-Base template project for development with ASP.NET server using DDD and Clean Architecture principles.
+Base template project for development with ASP.NET server using DDD, CQRS and Clean Architecture principles.
 
 The project contains some base entities to simulate tasks, categories and users.
 
