@@ -1,0 +1,44 @@
+CREATE TABLE Logs (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Message NVARCHAR(MAX) NOT NULL,
+    Details NVARCHAR(MAX) NULL,
+    Date DATETIME NOT NULL,
+    UserId INT NULL,
+    Type INT NOT NULL,
+);
+
+CREATE TABLE Users (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(256) NOT NULL,
+    Password NVARCHAR(1024) NOT NULL,
+    Email NVARCHAR(128) NOT NULL UNIQUE,
+    Profile INT NOT NULL,
+);
+
+CREATE TABLE Categories (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(128) NOT NULL,
+    UserId INT NOT NULL,
+   	FOREIGN KEY (UserId) REFERENCES Users(Id),
+);
+
+CREATE TABLE Tasks (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(128) NOT NULL,
+    Description NVARCHAR(MAX) NULL,
+    Status INT NOT NULL,
+    Priority INT NOT NULL,
+    DueDate DATE NOT NULL,
+    UserId INT NOT NULL,
+    CategoryId INT NOT NULL,
+    FOREIGN KEY (UserId) REFERENCES Users(Id),
+    FOREIGN KEY (CategoryId) REFERENCES Categories(Id)
+);
+
+CREATE TABLE VerificationCodes (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Email NVARCHAR(128) NOT NULL,
+    Date DATETIME NOT NULL,
+    Code INT NOT NULL,
+    Type INT NOT NULL,
+);

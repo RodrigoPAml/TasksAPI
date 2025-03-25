@@ -1,0 +1,23 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Api/bin/Debug/net8.0
+/Api/obj
+/Application/bin/Debug/net8.0
+/Application/obj
+/Domain/bin/Debug/net8.0
+/Domain/obj
+/Infra/bin/Debug/net8.0
+/Infra/obj
+/IoC/bin/Debug/net8.0
+/IoC/obj
+/UnitTests/bin/Debug/net8.0
+/UnitTests/obj
+/Tests/IntegrationTests/bin/Debug/net8.0
+/Tests/IntegrationTests/obj
+/Tests/UnitTests/bin/Debug/net8.0
+/Tests/UnitTests/obj
+/Api/appsettings.Development.json
+/Api/appsettings.Tests.json
