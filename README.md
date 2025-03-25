@@ -12,10 +12,14 @@ You may need configure *appsettings.json* to get it to work.
 * DDD based implementation
 * Unit and Integration Tests
 * CQRS pattern for use cases
-* Auto logging with independent transaction
+* Cross-cutting concerns: Auto logging with independent transaction, error handler, auto rollback
 * Migrations
-* Result pattern, avoiding throws 
+* Result pattern return, avoiding throws 
 * Api fixed base response
+* Unity of Work and repository pattern
+* API Base result format
+* JWT Authentication
+* BCrypt for security of passwords
 
 # Layers
 
