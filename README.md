@@ -25,9 +25,11 @@ This is a sample, you may change it and adapt to your needs.
 
 # Layers
 
-The project has a layered structure as follows.
+The project has a layered structure as follows:
 
 ![image](https://github.com/user-attachments/assets/64e72fce-3414-4816-8668-91877f938ba4)
+
+Note: persistence and infraestructure are the same in my project
 
 ## API (Presentation)
 
