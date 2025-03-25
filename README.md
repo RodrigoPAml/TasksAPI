@@ -171,7 +171,7 @@ The project contains two test projects: unit tests and integration tests.
 
 ## Unit tests
 
-Unit tests are performed in the domain layer, at the entity and domain service levels, using Moq to ensure there are no external dependencies.
+In our project, unit tests were performed in the domain layer, at the entity and domain service levels, using Moq to ensure there were no external dependencies.
 
 ### Entities
 ![image](https://github.com/user-attachments/assets/0750163d-ceea-4ffa-8f0a-e45068f44737)
@@ -180,7 +180,8 @@ Unit tests are performed in the domain layer, at the entity and domain service l
 
 ## Integration tests
 
-Integration tests are performed using a test SQL Server with fixed data at the infrastructure, application, and API levels
+In our project, integration tests are performed using a test SQL Server with fixed data at the infrastructure, application, and API layers.
+
 ### Infrastructure
 ![image](https://github.com/user-attachments/assets/6b301d58-06d8-4dc4-b48e-c868f35b28ae)
 ### Application
