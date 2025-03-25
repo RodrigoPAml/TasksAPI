@@ -13,7 +13,7 @@ You may need configure *appsettings.json* to get it to work.
 * Unit and Integration Tests
 * CQRS pattern for use cases
 * Cross-cutting concerns: Auto logging with independent transaction, error handler, auto rollback
-* Migrations
+* Migrations system
 * Result pattern return, avoiding throws 
 * Api fixed base response
 * Unity of Work and repository pattern
