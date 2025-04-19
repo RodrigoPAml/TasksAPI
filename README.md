@@ -6,22 +6,30 @@ The project contains some base entities to simulate tasks, categories and users.
 
 You may need configure *appsettings.json* to get it to work.
 
+This is a sample, you may change it and adapt to your needs.
+
 ## Features
 
 * Entity framework ORM (tested with SQL Server)
 * DDD based implementation
 * Unit and Integration Tests
 * CQRS pattern for use cases
-* Auto logging with independent transaction
-* Migrations
-* Result pattern, avoiding throws 
+* Cross-cutting concerns: Auto logging with independent transaction, error handler, auto rollback
+* Migrations system
+* Result pattern return, avoiding throws 
 * Api fixed base response
+* Unity of Work and repository pattern
+* API Base result format
+* JWT Authentication
+* BCrypt for security of passwords
 
 # Layers
 
-The project has a layered structure as follows.
+The project has a layered structure as follows:
 
 ![image](https://github.com/user-attachments/assets/64e72fce-3414-4816-8668-91877f938ba4)
+
+Note: persistence and infraestructure are the same in my project
 
 ## API (Presentation)
 
@@ -126,7 +134,7 @@ public sealed class Category : BaseEntity
 
 ## Infraestructure
 
-This layer is resposabile for data persistence and other services, usually will contain the code for the ORM and return domain entities.
+This layer is responsable for data persistence and other services, usually will contain the code for the ORM and return domain entities.
 
 In this layer we also have the persistence entities that are used by the ORM.
 
@@ -173,7 +181,7 @@ The project contains two test projects: unit tests and integration tests.
 
 In our project, unit tests were performed in the domain layer, at the entity and domain service levels, using Moq to ensure there were no external dependencies (from repositories).
 
-You may need configure appsettings.Tests.json to get it to work.
+You may need configure *appsettings.Tests.json* to get it to work.
 
 ### Entities
 ![image](https://github.com/user-attachments/assets/0750163d-ceea-4ffa-8f0a-e45068f44737)
