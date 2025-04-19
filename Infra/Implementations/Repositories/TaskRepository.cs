@@ -1,6 +1,8 @@
 using Infra.Base;
 using Infra.Contexts;
 using Infra.Entities;
+using Domain.Enums;
+using Domain.Models.Tasks;
 using Domain.Models.Responses;
 using Infra.Implementations.Query;
 using Domain.Interfaces.Repositories;
@@ -53,16 +55,56 @@ namespace Infra.Implementations.Repositories
                .ToList();
         }
        
-        public async Task<GetPagedResponse<TaskEntity>> GetPaged(int userId, int pageNumber, int pageSize)
+        public async Task<GetPagedResponse<TaskEntity>> GetPaged(int pageNumber, int pageSize, TasksFilterModel filter, TaskOrderByEnum? ordering)
         {
+            var queryFilter = new Filter<DbTask>();
+
+            if(filter != null)
+            {
+                if (!string.IsNullOrEmpty(filter.Name))
+                    queryFilter.And(x => x.Name.Contains(filter.Name));
+
+                if (filter.Status != null)
+                    queryFilter.And(x => x.Status == (int)filter.Status);
+
+                if(filter.Priority != null)
+                    queryFilter.And(x => x.Priority == (int)filter.Priority);
+
+                if(filter.CategoryId != null)
+                    queryFilter.And(x => x.CategoryId == filter.CategoryId);
+            }
+
             var query = _dbSet
-                .Where(x => x.UserId == userId)
+                .Where(queryFilter.GetExpression())
                 .AsNoTrackingWithIdentityResolution();
+
+            switch(ordering)
+            {
+                case TaskOrderByEnum.NameAsc:
+                    query = query.OrderBy(x => x.Name);
+                    break;
+                case TaskOrderByEnum.NameDesc:
+                    query = query.OrderByDescending(x => x.Name);
+                    break;
+        
+                case TaskOrderByEnum.DueDateAsc:
+                    query = query.OrderBy(x => x.DueDate);
+                    break;
+                case TaskOrderByEnum.DueDateDesc:
+                    query = query.OrderByDescending(x => x.DueDate);
+                    break;
+                case TaskOrderByEnum.IdAsc:
+                    query = query.OrderBy(x => x.Id);
+                    break;
+                case TaskOrderByEnum.IdDesc:
+                default:
+                    query = query.OrderByDescending(x => x.Id);
+                    break;
+            }
 
             var totalCount = await query.CountAsync();
 
             var items = await query
-                .OrderByDescending(x => x.Id)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();

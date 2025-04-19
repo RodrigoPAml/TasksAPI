@@ -34,7 +34,7 @@ namespace Api.Controllers
                       return new()
                       {
                           Success = resp.Success,
-                          Response = null,
+                          Data = null,
                           ErrorMessage = resp.Message,
                           Code = resp.Success ? 200 : 400
                       };
@@ -59,7 +59,7 @@ namespace Api.Controllers
                       return new()
                       {
                           Success = resp.Success,
-                          Response = null,
+                          Data = null,
                           ErrorMessage = resp.Message,
                           Code = resp.Success ? 200 : 400
                       };
@@ -84,7 +84,7 @@ namespace Api.Controllers
                       return new()
                       {
                           Success = resp.Success,
-                          Response = null,
+                          Data = null,
                           ErrorMessage = resp.Message,
                           Code = resp.Success ? 200 : 400
                       };

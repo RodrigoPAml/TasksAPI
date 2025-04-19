@@ -28,7 +28,7 @@ namespace IoC.Utils
             {
                 if (dest != null && src != null)
                 {
-                    dest.DomainRef = src;
+                    dest.SetDomainRef(src);
                 }
             });
         }

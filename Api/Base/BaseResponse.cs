@@ -5,7 +5,7 @@
     /// </summary>
     public class BaseResponse
     {
-        public object Response { get; set; }
+        public object Data { get; set; }
         public bool Success { get; set; }
         public string ErrorMessage { get; set; }
         public int Code { get; set; }
@@ -16,7 +16,7 @@
     /// </summary>
     public class BaseResponse<T>
     {
-        public T Response { get; set; }
+        public T Data { get; set; }
         public bool Success { get; set; }
         public string ErrorMessage { get; set; }
         public int Code { get; set; }

@@ -35,7 +35,7 @@ namespace Api.Controllers
                      var response = new BaseResponse
                      {
                          Success = resp.Success,
-                         Response = resp.Content,
+                         Data = resp.Content,
                          ErrorMessage = resp.Message,
                          Code = resp.Success ? 200 : 400
                      };
@@ -61,7 +61,7 @@ namespace Api.Controllers
                      var response = new BaseResponse
                      {
                          Success = resp.Success,
-                         Response = null,
+                         Data = null,
                          ErrorMessage = resp.Message,
                          Code = resp.Success ? 200 : 400
                      };
@@ -87,7 +87,7 @@ namespace Api.Controllers
                      var response = new BaseResponse
                      {
                          Success = resp.Success,
-                         Response = null,
+                         Data = null,
                          ErrorMessage = resp.Message,
                          Code = resp.Success ? 200 : 400
                      };
@@ -113,7 +113,7 @@ namespace Api.Controllers
                      var response = new BaseResponse
                      {
                          Success = resp.Success,
-                         Response = null,
+                         Data = null,
                          ErrorMessage = resp.Message,
                          Code = resp.Success ? 200 : 400
                      };
@@ -139,7 +139,7 @@ namespace Api.Controllers
                      var response = new BaseResponse
                      {
                          Success = resp.Success,
-                         Response = null,
+                         Data = null,
                          ErrorMessage = resp.Message,
                          Code = resp.Success ? 200 : 400
                      };
@@ -165,7 +165,7 @@ namespace Api.Controllers
                      var response = new BaseResponse
                      {
                          Success = resp.Success,
-                         Response = resp.Content,
+                         Data = resp.Content,
                          ErrorMessage = resp.Message,
                          Code = resp.Success ? 200 : 400
                      };

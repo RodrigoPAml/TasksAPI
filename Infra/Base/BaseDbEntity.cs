@@ -12,17 +12,22 @@ namespace Infra.Base
         public int Id { get; set; }
 
         [NotMapped]
-        public BaseEntity DomainRef { get; set; }
+        private BaseEntity _domainRef;
+
+        public void SetDomainRef(BaseEntity domainRef)
+        {
+            _domainRef = domainRef;
+        }   
 
         public void UpdateDomainId()
         {
-            if (DomainRef != null)
+            if (_domainRef != null)
             {
-                var idProperty = DomainRef
+                var idProperty = _domainRef
                     .GetType()
                     .GetProperty("Id", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 
-                idProperty?.SetValue(DomainRef, Id);
+                idProperty?.SetValue(_domainRef, Id);
             }
         }
     }

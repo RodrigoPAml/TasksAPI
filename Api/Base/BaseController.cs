@@ -73,7 +73,7 @@ namespace Api.Base
             jsonConfig.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
 
             _logger.Log(
-                request.GetType().Name, 
+                request?.GetType()?.Name ?? "null", 
                 JsonSerializer.Serialize(information, options: jsonConfig), 
                 response.Success
                     ? LogTypeEnum.Information
@@ -94,28 +94,13 @@ namespace Api.Base
 
             try
             {
-                if(request == null)
-                {
-                    return await GetApiResponse
-                    (
-                        new()
-                        {
-                            Response = null,
-                            Success = false,
-                            ErrorMessage = "Invalid request",
-                            Code = 400
-                        },
-                        request
-                    );
-                }
-
                 if(!ModelState.IsValid)
                 {
                     string error = ModelState.Values
                         .FirstOrDefault()
                         ?.Errors?
                         .FirstOrDefault()?
-                        .ErrorMessage ?? "Unknow error";
+                        .ErrorMessage ?? "Invalid Request";
 
                     if(error.EndsWith('.'))
                         error = error[..^1];
@@ -124,7 +109,7 @@ namespace Api.Base
                     (
                         new()
                         {
-                            Response = null,
+                            Data = null,
                             Success = false,
                             ErrorMessage = error,
                             Code = 400
@@ -148,7 +133,7 @@ namespace Api.Base
                 (
                     new()
                     {
-                        Response = null,
+                        Data = null,
                         Success = false,
                         ErrorMessage = ex.Message,
                         Code = 500

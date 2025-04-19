@@ -64,7 +64,13 @@ namespace Infra.Implementations.Query
         }
 
         public Expression<Func<T, bool>> GetExpression()
-        {
+        {   
+            if(Predicate == null)
+            {
+                var defaultPredicate = PredicateBuilder.New<T>(x => true);
+                return (Expression<Func<T, bool>>)defaultPredicate?.Expand();
+            }
+
             return (Expression<Func<T, bool>>)Predicate?.Expand();
         }
 
