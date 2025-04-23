@@ -96,6 +96,12 @@ namespace Infra.Implementations.Repositories
                 case TaskOrderByEnum.DueDateDesc:
                     query = query.OrderByDescending(x => x.DueDate);
                     break;
+                case TaskOrderByEnum.PriorityAsc:
+                    query = query.OrderBy(x => x.Priority);
+                    break;
+                case TaskOrderByEnum.PriorityDesc:
+                    query = query.OrderByDescending(x => x.Priority);
+                    break;
                 case TaskOrderByEnum.IdAsc:
                     query = query.OrderBy(x => x.Id);
                     break;

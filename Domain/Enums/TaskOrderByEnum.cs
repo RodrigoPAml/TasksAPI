@@ -8,5 +8,7 @@
         NameDesc,
         DueDateAsc,
         DueDateDesc,
+        PriorityAsc,
+        PriorityDesc,
     }
 }
