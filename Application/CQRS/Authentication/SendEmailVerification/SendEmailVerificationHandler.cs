@@ -52,14 +52,21 @@ namespace Application.CQRS.Authentication.SendEmailVerification
             await _repo.Create(entity);
 
             await _uow.Save();
-            await _uow.Commit();
 
-            await _emailService.SendEmail(
-                request.Email,
-                "Email Verification Code",
-                $"Your email verification code is {entity.Code} and is valid for 15 minutes. Previous codes are no longer valid."
+            var result = await _emailService.SendEmail(
+               request.Email,
+               "Email Verification Code",
+               $"Your email verification code is {entity.Code} and is valid for 15 minutes. Previous codes are no longer valid."
             );
 
+            if(!result.Success)
+            {
+                await _uow.Rollback();
+                return Operation.MakeFailure($"Failed to send email: {result.Message}");
+            }
+
+            await _uow.Commit();
+           
             return Operation.MakeSuccess();
         }
     }

@@ -21,3 +21,10 @@
 /Tests/UnitTests/obj
 /Api/appsettings.Development.json
 /Api/appsettings.Tests.json
+/Api/bin/Release/net8.0
+/Application/bin/Release/net8.0
+/Domain/bin/Release/net8.0
+/Infra/bin/Release/net8.0
+/IoC/bin/Release/net8.0
+/Tests/IntegrationTests/bin/Release/net8.0
+/Tests/UnitTests/bin/Release/net8.0
