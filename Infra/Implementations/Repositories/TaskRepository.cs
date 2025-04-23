@@ -72,6 +72,9 @@ namespace Infra.Implementations.Repositories
 
                 if(filter.CategoryId != null)
                     queryFilter.And(x => x.CategoryId == filter.CategoryId);
+
+                if (filter.UserId != null)
+                    queryFilter.And(x => x.UserId == filter.UserId);
             }
 
             var query = _dbSet
