@@ -72,7 +72,7 @@ namespace IoC.Register
                 .LinkReference();
 
             CreateMap<DbVerificationCode, VerificationCode>()
-             .BypassConstructor();
+                .BypassConstructor();
 
             CreateMap<VerificationCode, DbVerificationCode>()
                 .LinkReference();

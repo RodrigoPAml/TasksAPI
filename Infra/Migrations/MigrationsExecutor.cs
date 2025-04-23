@@ -30,7 +30,7 @@ namespace Infra.Migrations
 
                 // Apply the default SQL (always)
                 var initialSql = sqls
-                    .Where(x => Path.GetFileName(x) == "default.sql")
+                    .Where(x => Path.GetFileName(x) == "0_default.sql")
                     .FirstOrDefault();
 
                 using (var transaction = context.Database.BeginTransaction())
@@ -40,7 +40,7 @@ namespace Infra.Migrations
                 }
 
                 // Apply migrations if not already applied
-                foreach (var sql in sqls.Where(x => Path.GetFileName(x) != "default.sql"))
+                foreach (var sql in sqls.Where(x => Path.GetFileName(x) != "0_default.sql"))
                 {
                     var filename = Path.GetFileName(sql);
                     var content = File.ReadAllText(sql);
